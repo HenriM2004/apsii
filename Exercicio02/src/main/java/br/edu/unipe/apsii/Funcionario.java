@@ -1,14 +1,39 @@
 package br.edu.unipe.apsii;
 
 public class Funcionario {
-    public String nome;
-    protected int matricula;
-    protected double salarioBase;
-    protected int dataAdmissao;
-
-    public Funcionario(String nome, int matricula, double salarioBase, int dataAdmissao) {
-        this.nome = funcionarioNome;
-        this.matricula = funcionarioMatric;
+    private String nome;
+    private String matricula;
+    private double salarioBase;
+    private String dataAdmissao;
+    public Funcionario(String nome, String matricula, double salarioBase,
+                       String dataAdmissao, String valeTransporte, String valeAlimentacao) {
+        this.nome = nome;
+        this.matricula = matricula;
+        this.salarioBase = salarioBase;
+        this.dataAdmissao = dataAdmissao;
     }
-
+    public String getNome() {
+        return nome;
+    }
+    public String getMatricula() {
+        return matricula;
+    }
+    public double getSalarioBase() {
+        return salarioBase;
+    }
+    public double calcularSalario() {
+        return salarioBase;
+    }
+    public double calcularDesconto() {
+        return salarioBase * 0.08;
+    }
+    @Override
+    public String toString() { double
+            liquido = calcularSalario() - calcularDesconto();
+        return String.format( "%s [%s] - Salário: R$ %.2f | Desconto:
+                R$ %.2f | Líquido: R$ %.2f", nome, matricula,
+        calcularSalario(), calcularDesconto(), liquido );
+    }
 }
+
+
